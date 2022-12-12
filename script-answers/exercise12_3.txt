@@ -1,0 +1,19 @@
+Script started on Thu Dec  8 21:47:08 2022
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ docker container ls -a
+CONTAINER ID   IMAGE               COMMAND                  CREATED          STATUS                      PORTS                NAMES
+b2aa758f3998   ubuntu              "bash"                   23 minutes ago   Exited (0) 27 seconds ago                        admiring_gagarin
+313825ac3600   hello-world         "/hello"                 4 hours ago      Exited (0) 4 hours ago                           sleepy_liskov
+c443cea11f99   docker101tutorial   "/docker-entrypoint.…"   4 hours ago      Up 4 hours                  0.0.0.0:80->80/tcp   docker-tutorial
+3625b7910c4d   alpine/git          "git clone https://g…"   4 hours ago      Exited (0) 4 hours ago                           repo
+bash-3.2$ docker start -i admiring_gagarin
+[?2004h]0;root@b2aa758f3998: /root@b2aa758f3998:/# [K]0;root@b2aa758f3998: /root@b2aa758f3998:/# nano usr/src/app/index.js 
+[?2004l[?2004h[?1049h[22;0;0t[1;24r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[22;73H(B[0;7m[ Reading... ](B[m[22;72H(B[0;7m[ Read 0 lines ](B[m[H(B[0;7m  GNU nano 6.2 [56busr/src/app/index.js [65b [1;157H(B[m[23d(B[0;7m^G(B[m Help[23;18H(B[0;7m^O(B[m Write Out     (B[0;7m^W(B[m Where Is[52G(B[0;7m^K(B[m Cut[23;69H(B[0;7m^T(B[m Execute[86G(B[0;7m^C(B[m Location[103G(B[0;7mM-U(B[m Undo[23;120H(B[0;7mM-A(B[m Set Mark     (B[0;7mM-](B[m To Bracket[24d(B[0;7m^X(B[m Exit[24;18H(B[0;7m^R(B[m Read File     (B[0;7m^\(B[m Replace[52G(B[0;7m^U(B[m Paste[24;69H(B[0;7m^J(B[m Justify[86G(B[0;7m^/(B[m Go To Line    (B[0;7mM-E(B[m Redo[24;120H(B[0;7mM-6(B[m Copy[24;137H(B[0;7m^Q(B[m Where Was[2d[?12l[?25h[?25l[1;93H(B[0;7m*[157G(B[m[?12l[?25h[2dc[?25l[?12l[?25ho[?25l[?12l[?25hn[?25l[?12l[?25hs[?25l[?12l[?25ho[?25l[?12l[?25hl[?25l[?12l[?25he[?25l[?12l[?25h.[?25l[?12l[?25hl[?25l[?12l[?25ho[?25l[?12l[?25hg[?25l[?12l[?25h([?25l[?12l[?25h<[?25l[?12l[?25h<[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h'[?25l[?12l[?25hH[?25l[?12l[?25he[?25l[22d[K[?12l[?25h[2;16Hl[?25l[?12l[?25hl[?25l[?12l[?25ho[?25l[?12l[?25h[42m [49m(B[m[?25l[?12l[?25h W[?25l[?12l[?25ho[?25l[?12l[?25hr[?25l[?12l[?25hl[?25l[?12l[?25hd[?25l[?12l[?25h[2;13H(B[0;1m[35m'Hello World'[39m(B[m[?25l[?12l[?25h)[?25l[22d(B[0;7mSave modified buffer? [135b [23;1H Y(B[m Yes[K[24d(B[0;7m N(B[m No  [24;17H(B[0;7m^C(B[m Cancel[K[22;23H[?12l[?25h[?25l[23d(B[0;7m^G(B[m Help[23;40H(B[0;7mM-D(B[m DOS Format[23;79H(B[0;7mM-A(B[m Append[23;118H(B[0;7mM-B(B[m Backup File[24d(B[0;7m^C(B[m Cancel[17G [8b[24;40H(B[0;7mM-M(B[m Mac Format[24;79H(B[0;7mM-P(B[m Prepend[24;118H(B[0;7m^T(B[m Browse[22d(B[0;7mFile Name to Write: usr/src/app/index.js(B[m[?12l[?25h[?25l[22;72H[1K (B[0;7m[ Writing... ](B[m[K[1;93H(B[0;7m [157G(B[m[22;72H(B[0;7m[ Wrote 1 line ](B[m[J[24d[?12l[?25h[24;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;root@b2aa758f3998: /root@b2aa758f3998:/# [Kexit
+[?2004lexit
+bash-3.2$ exit
+exit
+
+Script done on Thu Dec  8 21:48:39 2022
