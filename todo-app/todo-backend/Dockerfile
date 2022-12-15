@@ -1,4 +1,4 @@
-FROM node:16 AS todo-backend-container
+FROM node:16
 
 WORKDIR /usr/src/app/
 

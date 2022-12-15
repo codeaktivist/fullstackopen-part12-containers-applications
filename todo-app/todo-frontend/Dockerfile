@@ -18,9 +18,7 @@ COPY --from=test-stage /usr/src/app .
 
 ENV REACT_APP_BACKEND_URL=http://localhost:3000/
 
-RUN pwd
-
-RUN ls
+ENV PORT=3001
 
 RUN rm -R /usr/src/app/src/tests
 
