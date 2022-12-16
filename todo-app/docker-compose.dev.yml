@@ -20,6 +20,10 @@ services:
       dockerfile: ./dev.Dockerfile
     ports:
       - 3001:3001
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8080/api/
+    volumes:
+      - ./todo-frontend/:/usr/src/app
     container_name: todo-frontend-full-dev
 
   mongo:
