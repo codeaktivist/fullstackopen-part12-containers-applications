@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+
+  app-frontend:
+    image: todo-frontend-dev
+    build:
+      context: ./todo-frontend
+      dockerfile: ./dev.Dockerfile
+    ports:
+      - 3001:3001
+    container_name: dev-frontend
+
+  nginx:
+    image: nginx:1.10.2
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    depends_on:
+      - app-frontend
+    container_name: reverse-proxy
