@@ -10,4 +10,4 @@ RUN npm ci --only=production
 
 USER node
 
-CMD npm start
+CMD [ "npm", "start" ]
