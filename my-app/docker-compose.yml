@@ -15,8 +15,8 @@ services:
       - 8080:8080
     environment:
       - PORT_PROD=8080
-      - MONGO_URL_PROD=mongodb://container_user:container_password@counters-mongo-prod:27017/counters-prod?authSource=admin
-      - REDIS_URL_PROD=redis://counters-redis-prod:6379
+      - MONGO_URL_PROD=mongodb://container_user:container_password@myapp-mongo-prod:27017/counters-prod?authSource=admin
+      - REDIS_URL_PROD=redis://myapp-redis-prod:6379
     depends_on:
       - mongo-prod
       - redis-prod
