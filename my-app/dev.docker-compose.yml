@@ -1,0 +1,64 @@
+# This Compose file will run the app in develompent environemnt:
+# - Frontend is served on port 3001
+# - Backend is served on port 3000, might also serve an existing frontend build
+# - MongoDB is using a docker container
+# - Redis is using a docker container
+
+version: '3.3'
+
+# name: counters-dev
+
+services:
+
+  frontend-dev:
+    image: myapp-frontend-dev
+    build:
+      context: ./counters-frontend
+      dockerfile: ./Dockerfile
+    ports:
+      - 3001:3001
+    volumes:
+      - ./counters-frontend:/usr/src/app
+    depends_on:
+      - mongo-dev
+      - redis-dev
+    container_name: myapp-frontend-dev
+
+  backend-dev:
+    image: myapp-backend-dev
+    build:
+      context: ./counters-backend
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - PORT_DEV=3000
+      - MONGO_URL_DEV=mongodb://container_user:container_password@myapp-mongo-dev:27017/counters-dev?authSource=admin
+      - REDIS_URL_DEV=redis://myapp-redis-dev:6379
+    volumes:
+      - ./counters-backend:/usr/src/app
+    depends_on:
+      - mongo-dev
+      - redis-dev
+    container_name: myapp-backend-dev
+
+  mongo-dev:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: container_user
+      MONGO_INITDB_ROOT_PASSWORD: container_password
+      MONGO_INITDB_DATABASE: counters-dev
+    volumes:
+      - ./counters-backend/mongo_data:/data/db
+    container_name: myapp-mongo-dev
+
+  redis-dev:
+    image: redis
+    ports:
+      - 6379:6379
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - ./counters-backend/redis_data:/data
+    container_name: myapp-redis-dev

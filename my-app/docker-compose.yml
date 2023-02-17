@@ -1,0 +1,20 @@
+# This Compose will start the app in production environemnt:
+# - Frontend is served via backend, both on port 8080
+# - MongoDB is using a docker container
+# - Redis is using a docker container
+
+version: '3.3'
+
+# name: counters-prod
+
+services:
+  full-prod:
+    image: counters
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      - PORT_PROD=8080
+      - MONGO_URL_DEV=mongodb://container_user:container_password@counters-mongo-dev:27017/counters-dev?authSource=admin
+      - REDIS_URL_DEV=redis://counters-redis-dev:6379
+    container_name: counters-full-prod
