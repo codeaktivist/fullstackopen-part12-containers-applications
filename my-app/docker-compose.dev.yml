@@ -14,7 +14,7 @@ services:
     image: myapp-frontend-dev
     build:
       context: ./counters-frontend
-      dockerfile: ./Dockerfile
+      dockerfile: ./dev.Dockerfile
     ports:
       - 3001:3001
     volumes:
@@ -28,7 +28,7 @@ services:
     image: myapp-backend-dev
     build:
       context: ./counters-backend
-      dockerfile: ./Dockerfile
+      dockerfile: ./dev.Dockerfile
     ports:
       - 3000:3000
     environment:

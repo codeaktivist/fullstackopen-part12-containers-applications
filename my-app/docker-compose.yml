@@ -9,12 +9,36 @@ version: '3.3'
 
 services:
   full-prod:
-    image: counters
+    image: myapp-full-prod
     build: .
     ports:
       - 8080:8080
     environment:
       - PORT_PROD=8080
-      - MONGO_URL_DEV=mongodb://container_user:container_password@counters-mongo-dev:27017/counters-dev?authSource=admin
-      - REDIS_URL_DEV=redis://counters-redis-dev:6379
-    container_name: counters-full-prod
+      - MONGO_URL_PROD=mongodb://container_user:container_password@counters-mongo-prod:27017/counters-prod?authSource=admin
+      - REDIS_URL_PROD=redis://counters-redis-prod:6379
+    depends_on:
+      - mongo-prod
+      - redis-prod
+    container_name: myapp-full-prod
+
+  mongo-prod:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: container_user
+      MONGO_INITDB_ROOT_PASSWORD: container_password
+      MONGO_INITDB_DATABASE: counters-prod
+    volumes:
+      - ./counters-backend/mongo_data:/data/db
+    container_name: myapp-mongo-prod
+
+  redis-prod:
+    image: redis
+    ports:
+      - 6379:6379
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - ./counters-backend/redis_data:/data
+    container_name: myapp-redis-prod
